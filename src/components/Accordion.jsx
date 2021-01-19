@@ -9,8 +9,8 @@ const Accordion = ({ items }) => {
     }
 
     const renderedItems = items.map((item, index) => {
+      const active = index === activeIndex ? "active" : "";
 
-        const active = index === activeIndex ? "active" : "";
       return (
         <React.Fragment key={item.title}>
           <div
@@ -29,3 +29,5 @@ const Accordion = ({ items }) => {
   return <div className="ui styled accordion">{renderedItems}</div>;
 };
 export default Accordion;
+
+//Self contained component....
