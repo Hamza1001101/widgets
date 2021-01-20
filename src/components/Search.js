@@ -32,6 +32,18 @@ const Search = () => {
     
   }, [term]);
 
+
+  const renderedResult = results.map((result) => {
+    return (
+      <div className="item" key={result.pageid}>
+        <div className="content">
+          <div className="header"> {result.title} </div>
+          {result.snippet}
+        </div>
+      </div>
+    );
+  });
+
   return (
     <div>
       <div className="ui form">
@@ -45,6 +57,8 @@ const Search = () => {
           />
         </div>
       </div>
+
+      <div className="ui celled list">{renderedResult}</div>
     </div>
   );
 };
