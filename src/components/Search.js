@@ -14,31 +14,39 @@ const Search = () => {
    */
   useEffect(() => {
     const search = async () => {
-     const { data } = await axios.get("https://en.wikipedia.org/w/api.php", {
-       params: {
-         action: "query",
-         list: "search",
-         origin: "*",
-         format: "json",
-         srsearch: term,
-       },
-     });
+      const { data } = await axios.get("https://en.wikipedia.org/w/api.php", {
+        params: {
+          action: "query",
+          list: "search",
+          origin: "*",
+          format: "json",
+          srsearch: term,
+        },
+      });
       setResults(data.query.search);
     };
-    
+
     if (term) {
       search();
     }
-    
   }, [term]);
 
-
+  /**
+   * ! {dangerouslySetInnerHTML}
+   *  * This feature exists in React and it has some
+   *  * security concerns around it.
+   */
   const renderedResult = results.map((result) => {
     return (
       <div className="item" key={result.pageid}>
+        <div className='right floated content'>
+          <a className='ui button'
+          href={`https://en.wikipedia.org?curid=${result.pageid}`}
+          >Go</a>
+        </div>
         <div className="content">
           <div className="header"> {result.title} </div>
-          {result.snippet}
+          <span dangerouslySetInnerHTML={{ __html: result.snippet }}></span>
         </div>
       </div>
     );
