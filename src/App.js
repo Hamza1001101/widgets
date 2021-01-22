@@ -14,7 +14,7 @@ const items = [
     title: "How you use React?",
     content: "You use React by creating components",
   },
-];
+]; 
 
 const App = () => {
     return (

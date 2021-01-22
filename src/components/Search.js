@@ -29,7 +29,7 @@ const Search = () => {
 
     if (term && !results.length) {
       search();
-    } else {
+    } else { 
       const timeoutId = setTimeout(() => {
             if (term) {
               search();
