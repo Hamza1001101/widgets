@@ -1,16 +1,32 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 const Dropdown = ({ options, selected, onSelectedChange }) => {
   const [open, setOpen] = useState(false);
+  const ref = useRef()
+  
+  // useEffect(() => {
+
+  //   document.body.addEventListener('click', (event) => {
+  //     console.log(event.target)
+  //     setOpen(false)
+  //   }, {capture: true})
+  //   //make sure this runs only one time
+  // }, [])
 
   useEffect(() => {
-
-    document.body.addEventListener('click', () => {
-     
+    const onBodyClick = event => {
+      if (ref.current && ref.current.contains(event.target)) {
+        return
+      }
       setOpen(false)
-    }, {capture: true})
-    //make sure this runs only one time
-  }, [])
+    }
+    document.body.addEventListener('click', onBodyClick)
+
+    //Clean up
+    return () => {
+      document.body.removeEventListener('click', onBodyClick)
+    }
+  })
 
   const renderOptions = options.map((option) => {
     if (option.value === selected.value) return null;
@@ -18,10 +34,10 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
       <div
         className="item"
         key={option.value}
-        onClick={() => {
+        onClick={() => 
          
           onSelectedChange(option)
-        }}
+        }
       >
         {option.label}
       </div>
@@ -29,7 +45,7 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
   });
 
   return (
-    <div className="ui form">
+    <div ref={ref} className="ui form">
       <div className="field">
         <label htmlFor="" className="label">
           Select a Color
