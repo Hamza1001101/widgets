@@ -15,10 +15,12 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
 
   useEffect(() => {
     const onBodyClick = event => {
+      //The constains method belongs to all DOM-elements
+      //*  & Checks if a DOM-element contains another element
       if (ref.current && ref.current.contains(event.target)) {
-        return
+        return;
       }
-      setOpen(false)
+      setOpen(false);
     }
     document.body.addEventListener('click', onBodyClick)
 
