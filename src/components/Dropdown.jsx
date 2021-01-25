@@ -2,8 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 
 const Dropdown = ({ options, selected, onSelectedChange }) => {
   const [open, setOpen] = useState(false);
-  const ref = useRef()
-  
+  const ref = useRef();
+
   // useEffect(() => {
 
   //   document.body.addEventListener('click', (event) => {
@@ -14,32 +14,30 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
   // }, [])
 
   useEffect(() => {
-    const onBodyClick = event => {
+    const onBodyClick = (event) => {
       //The constains method belongs to all DOM-elements
       //*  & Checks if a DOM-element contains another element
       if (ref.current && ref.current.contains(event.target)) {
         return;
       }
       setOpen(false);
-    }
-    document.body.addEventListener('click', onBodyClick)
+    };
+    document.body.addEventListener("click", onBodyClick);
 
     //Clean up
     return () => {
-      document.body.removeEventListener('click', onBodyClick)
-    }
-  })
+      document.body.removeEventListener("click", onBodyClick);
+    };
+  });
 
   const renderOptions = options.map((option) => {
     if (option.value === selected.value) return null;
+
     return (
       <div
         className="item"
         key={option.value}
-        onClick={() => 
-         
-          onSelectedChange(option)
-        }
+        onClick={() => onSelectedChange(option)}
       >
         {option.label}
       </div>
@@ -54,8 +52,7 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
         </label>
         <div
           onClick={() => {
-            
-            setOpen(!open)
+            setOpen(!open);
           }}
           className={`ui selection dropdown ${open ? "visible active" : ""}`}
         >
@@ -66,6 +63,12 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
           </div>
         </div>
       </div>
+
+      {selected.value === "red" ? (
+        <p style={{ color: "red" }}>This text is Red</p>
+      ) : (
+        <p>Thi is not Red</p>
+      )}
     </div>
   );
 };
