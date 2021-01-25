@@ -4,15 +4,6 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
   const [open, setOpen] = useState(false);
   const ref = useRef();
 
-  // useEffect(() => {
-
-  //   document.body.addEventListener('click', (event) => {
-  //     console.log(event.target)
-  //     setOpen(false)
-  //   }, {capture: true})
-  //   //make sure this runs only one time
-  // }, [])
-
   useEffect(() => {
     const onBodyClick = (event) => {
       //The constains method belongs to all DOM-elements
@@ -67,7 +58,7 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
       {selected.value === "red" ? (
         <p style={{ color: "red" }}>This text is Red</p>
       ) : (
-        <p>Thi is not Red</p>
+        <p>This is not Red</p>
       )}
     </div>
   );
