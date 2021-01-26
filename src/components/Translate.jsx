@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Convert from "./Convert";
 import Dropdown from "./Dropdown";
+import ExerciseSolution from "./ExerciseSolution";
 
 const options = [
   { label: "Afrikaans", value: "af" },
@@ -29,8 +30,10 @@ export const Translate = () => {
         options={options}
       />
       <hr />
-      <h3 className='ui header'>Output</h3>
+      <h3 className="ui header">Output</h3>
       <Convert text={text} language={language} />
+
+      <ExerciseSolution />
     </div>
   );
 };
