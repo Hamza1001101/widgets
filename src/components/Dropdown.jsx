@@ -24,7 +24,7 @@ const Dropdown = ({ label, options, selected, onSelectedChange }) => {
 
   const renderOptions = options.map((option) => {
     if (option.value === selected.value) return null;
-
+    
     return (
       <div
         className="item"

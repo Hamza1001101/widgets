@@ -9,7 +9,6 @@ const ExerciseSolution = () => {
   /**
    * * We are making a network request in useEffect hood.
    * * Network request are always asnychronous in nature
-   *
    */
 
   useEffect(() => {
@@ -21,7 +20,7 @@ const ExerciseSolution = () => {
   }, []);
 
   const renderedList = users.map((user) => (
-    <li key={user.id}> {user.name} </li>
+    <li style={{listStyleType: 'none'}} key={user.id}> {user.name} </li>
   ));
 
   return (
