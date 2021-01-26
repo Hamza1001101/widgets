@@ -56,12 +56,6 @@ const Dropdown = ({ label, options, selected, onSelectedChange }) => {
           </div>
         </div>
       </div>
-
-      {selected.value === "red" ? (
-        <p style={{ color: "red" }}>This text is Red</p>
-      ) : (
-        <p>This is not Red</p>
-      )}
     </div>
   );
 };
