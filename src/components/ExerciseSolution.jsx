@@ -20,7 +20,10 @@ const ExerciseSolution = () => {
   }, []);
 
   const renderedList = users.map((user) => (
-    <li style={{ listStyleType: "none", padding: ".5rem" }} key={user.id}>
+    <li
+      style={{ listStyleType: "none", padding: ".5rem", color: "blue" }}
+      key={user.id}
+    >
       {" "}
       {user.name}{" "}
     </li>
