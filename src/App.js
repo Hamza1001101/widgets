@@ -5,6 +5,7 @@ import "./App.css";
 //import Search from "./components/Search";
 import Translate from "./components/Translate";
 
+
 const items = [
   {
     title: "What is React?",
@@ -41,7 +42,7 @@ const App = () => {
           onSelectedChange={setSelected}
           options={options}
         />*/}
-        <Translate />
+      <Translate />
     </div>
   );
 };
