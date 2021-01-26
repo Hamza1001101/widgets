@@ -8,10 +8,14 @@ const options = [
 ];
 
 export const Translate = () => {
-  const [language, setLanguae] = useState(options[0]);
+
+    const [language, setLanguae] = useState(options[0]);
+    const [text, setText] = useState('initialState')
   return (
-    <div>
+      <div>
+        <input value={text} onChange={(e) => setText(e.target.value)} />
       <Dropdown
+        label="Select a Language"
         selected={language}
         onSelectedChange={setLanguae}
         options={options}
