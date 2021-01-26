@@ -6,8 +6,9 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
 
   useEffect(() => {
     const onBodyClick = (event) => {
-      //The constains method belongs to all DOM-elements
+      //* The constains method belongs to all DOM-elements
       //*  & Checks if a DOM-element contains another element
+
       if (ref.current && ref.current.contains(event.target)) {
         return;
       }
@@ -28,6 +29,7 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
       <div
         className="item"
         key={option.value}
+        ö
         onClick={() => onSelectedChange(option)}
       >
         {option.label}
